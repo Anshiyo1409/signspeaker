@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features | SignSpeaker AI</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+    }
+
+    header {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 26px;
+      color: #00ffd5;
+      font-weight: 600;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #00ffd5;
+    }
+
+    .features-section {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .features-section h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #00ffd5;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 25px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: rgba(0,255,213,0.15);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #00ffd5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #bbb;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1 class="logo">SignSpeaker AI</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="translate.html">Live Demo</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="features-section">
+  <h2>Core Features</h2>
+
+  <div class="feature-grid">
+    <div class="card">
+      <h3>🎤 Speech Recognition</h3>
+      <p>Accurate voice-to-text conversion using modern AI models.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧏 Sign Language Output</h3>
+      <p>Visual sign language representation using GIFs or avatars.</p>
+    </div>
+
+    <div class="card">
+      <h3>⚡ Real-Time Translation</h3>
+      <p>Instant processing for smooth and natural communication.</p>
+    </div>
+
+    <div class="card">
+      <h3>🌍 Accessibility First</h3>
+      <p>Designed to bridge communication gaps for the hearing impaired.</p>
+    </div>
+
+    <div class="card">
+      <h3>📱 Responsive Design</h3>
+      <p>Works seamlessly on mobile, tablet, and desktop devices.</p>
+    </div>
+
+    <div class="card">
+      <h3>🔒 Privacy Focused</h3>
+      <p>No speech data is stored, ensuring user privacy.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 SignSpeaker | Features
+</footer>
+
+</body>
+</html>

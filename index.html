@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SignSpeaker </title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 26px;
+      color: #00ffd5;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 400;
+    }
+
+    nav a:hover {
+      color: #00ffd5;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 500px;
+    }
+
+    .hero-text h2 {
+      font-size: 44px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #dcdcdc;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #00ffd5;
+      color: #000;
+      margin-right: 10px;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid #00ffd5;
+      color: #00ffd5;
+    }
+
+    .btn-secondary:hover {
+      background: #00ffd5;
+      color: #000;
+    }
+
+    .hero-img img {
+      width: 380px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
+    .features {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .features h3 {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 25px;
+      border-radius: 16px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: rgba(0,255,213,0.15);
+    }
+
+    .card h4 {
+      margin-bottom: 10px;
+      color: #00ffd5;
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #bbb;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>SignSpeaker </h1>
+    <nav>
+      <a href="/public/index.html">Home</a>
+      <a href="/public/features.html">Features</a>
+      <a href="/public/translate.html">Demo</a>
+      <a href="/public/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Breaking Communication Barriers</h2>
+      <p>
+        SignSpeaker converts speech into sign language gestures in real time,
+        making communication inclusive for everyone.
+      </p>
+      <button class="btn btn-primary" onclick="startDemo()">Try Live Demo</button>
+      <button class="btn btn-secondary">Learn More</button>
+    </div>
+
+    <div class="hero-img">
+      <img src="assets/hero.gif" alt="Sign Language Animation">
+    </div>
+  </section>
+
+  <section class="features">
+    <h3>Key Features</h3>
+    <div class="feature-grid">
+      <div class="card">
+        <h4>🎤 Speech Recognition</h4>
+        <p>Converts voice input into meaningful text accurately.</p>
+      </div>
+      <div class="card">
+        <h4>🧏 Sign Language Output</h4>
+        <p>Displays gestures using animations or avatars.</p>
+      </div>
+      <div class="card">
+        <h4>⚡ Real-Time Translation</h4>
+        <p>Instant processing with minimal delay.</p>
+      </div>
+      <div class="card">
+        <h4>🌍 Accessibility First</h4>
+        <p>Designed for inclusivity and ease of use.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 SignSpeaker | Empowering Inclusive Communication
+  </footer>
+
+  <script>
+    function startDemo() {
+      alert("Live demo will start soon 🚀");
+      window.location.href = "translate.html";
+    }
+  </script>
+
+</body>
+</html>

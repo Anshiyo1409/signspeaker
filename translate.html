@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Translation | SignSpeaker </title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 600;
+      color: #00ffd5;
+    }
+
+    /* ================= MAIN ================= */
+    .translate-main {
+      padding: 40px;
+    }
+
+    .translate-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    .panel:hover {
+      transform: translateY(-5px);
+    }
+
+    .panel h2 {
+      margin-bottom: 20px;
+      color: #00ffd5;
+      font-size: 22px;
+    }
+
+    /* ================= SPEECH PANEL ================= */
+    .mic-button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 30px;
+      border: none;
+      background: #00ffd5;
+      color: #000;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+
+    .mic-button:hover {
+      transform: scale(1.05);
+    }
+
+    .transcript {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      padding: 15px;
+      min-height: 80px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      color: #dcdcdc;
+    }
+
+    #text-input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+      margin-bottom: 15px;
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 12px;
+      border-radius: 30px;
+      border: none;
+      background: transparent;
+      border: 1px solid #00ffd5;
+      color: #00ffd5;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: #00ffd5;
+      color: #000;
+    }
+
+    /* ================= AVATAR PANEL ================= */
+    .avatar-panel {
+      text-align: center;
+    }
+
+    .avatar-gif-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .avatar-gif {
+      width: 220px;
+      margin-bottom: 15px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0); }
+    }
+
+    #current-sign {
+      font-size: 16px;
+      color: #00ffd5;
+    }
+
+    /* ================= QUICK SIGNS ================= */
+    .quick-signs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .sign-btn {
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .sign-btn:hover {
+      background: #00ffd5;
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 13px;
+      color: #bbb;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1 class="logo">SignSpeaker AI</h1>
+  </header>
+
+  <!-- MAIN -->
+  <main class="translate-main">
+    <div class="translate-layout">
+
+      <!-- SPEECH INPUT -->
+      <section class="panel">
+        <h2>🎤 Speech Input</h2>
+
+        <button id="mic-button" class="mic-button">
+          Start Listening
+        </button>
+
+        <div id="transcript" class="transcript">
+          Your speech will appear here...
+        </div>
+
+        <input
+          id="text-input"
+          type="text"
+          placeholder="Type text here"
+        />
+
+        <button id="translate-btn" class="btn-primary">
+          Translate
+        </button>
+      </section>
+
+      <!-- SIGN OUTPUT -->
+      <section class="panel avatar-panel">
+        <h2>🧏 Sign Output</h2>
+
+        <div class="avatar-gif-container">
+          <img
+            src="assets/unknown.gif"
+            alt="Sign language animation"
+            class="avatar-gif"
+            id="avatar-gif"
+          />
+          <p id="current-sign">Ready</p>
+        </div>
+      </section>
+
+      <!-- QUICK SIGNS -->
+      <section class="panel">
+        <h2>⚡ Quick Signs</h2>
+
+        <div class="quick-signs">
+          <button class="sign-btn">Happy</button>
+          <button class="sign-btn">Yes</button>
+          <button class="sign-btn">No</button>
+          <button class="sign-btn">Thank You</button>
+          <button class="sign-btn">How are you</button>
+          <button class="sign-btn">Sorry</button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    © 2026 SignSpeaker  | Live Sign Translation
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/ui.js"></script>
+  <script src="js/speech.js"></script>
+  <script src="js/gestures.js"></script>
+
+</body>
+</html>
