@@ -1,22 +1,31 @@
+import { getGifForText } from "./gestures.js";
+
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 
 const recognition = new SpeechRecognition();
 recognition.lang = "en-US";
-recognition.continuous = true;
+recognition.continuous = false;
 
-recognition.onresult = e => {
-  const text = e.results[e.results.length - 1][0].transcript;
-  document.getElementById("liveTranscript").innerText = text;
+recognition.onresult = (e) => {
+  const text = e.results[0][0].transcript;
+  console.log("🎤 Speech:", text);
 
-  const gif = getGifForText(text);
-  document.getElementById("signGif").src = `assets/gifs/${gif}`;
+  const transcriptEl = document.getElementById("transcript");
+  if (transcriptEl) {
+    transcriptEl.innerText = text;
+  }
+
+  const gifPath = getGifForText(text);
+  document.querySelector(".avatar-gif").src =
+    gifPath + "?t=" + Date.now();
 };
 
-function startListening() {
+
+export function startListening() {
   recognition.start();
 }
 
-function stopListening() {
+export function stopListening() {
   recognition.stop();
 }
