@@ -1,11 +1,12 @@
 export function getGifForText(text) {
-  text = text.toLowerCase();
+  const cleaned = text.toLowerCase().replace(/[.,!?]/g, "").trim();
 
-  if (text.includes("happy")) return "assets/happy.gif";
-  if (text.includes("yes")) return "assets/Yes.gif";
-  if (text.includes("no")) return "assets/no.gif";
-  if (text.includes("thank you")) return "assets/Thankyou.gif";
-  if (text.includes("sorry")) return "assets/sorry.gif";
-  if (text.includes("how are you")) return "assets/howareyou.gif";
-  return "default.gif";
+  if (cleaned.includes("happy")) return "assets/happy.gif";
+  if (cleaned.includes("yes")) return "assets/Yes.gif";
+  if (cleaned.includes("no")) return "assets/no.gif";
+  if (cleaned.includes("thank you")) return "assets/Thankyou.gif";
+  if (cleaned.includes("sorry")) return "assets/sorry.gif";
+  if (cleaned.includes("how are you")) return "assets/howareyou.gif";
+
+  return "assets/no.gif";
 }
